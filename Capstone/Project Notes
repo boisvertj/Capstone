@@ -1,0 +1,45 @@
+CAPSTONE
+
+Make a shapeshifting entity that is initially a blob that can learn how to shapeshift into different
+objects in order to effectively traverse an obstacle course of moving hazards, water, small and large
+blocks, etc. It can turn into springs, anvils (for smashing through something once in the air, etc.)
+
+It learns how to navigate them by a continually evolving evolutionary artificial neural network and
+perhaps a genetic algorithm of some kind in which it runs through the genetic algorithm in its "head"
+BEFORE it executes that way there doesn't need to be a million generations of this thing trying to get
+across a gap, it will take its current position, etc., and, in its head, create a hundred generations
+or so in order to learn what the best technique would be for it to successfully maneuver the obstacles.
+A physics engine would also need to be incorporated so it would be able to know that if it turns into
+a smaller spring then it might not be able to jump back up enough as compared to a larger spring that
+has more energy. 
+
+Make it either a semi-clear / creamy colored gelatinous mass / blob or a slightly
+greenish / clear one. Once it learns how it can shapeshift and can complete courses successfully then
+it can begin practicing on new courses that are imported from text files that represent the objects,
+their heights, widths, materials (bounciness, water, etc.) Make it so it will also have to learn to
+change its color to red, green, yellow, light blue, etc. in order to represent different
+temperature / material changes for shapeshifting. Make it a light blue color Genetic algorithm
+simulations of how to traverse an obstacle represents coming up with an idea. It doesn’t have to be
+100% correct / guaranteed to work but the likelihood of success must surpass a certain percentage
+threshold in order for it to be considered good enough to attempt. 
+
+Will need to have access to physics library (obviously) so that it can be able to learn how to move
+and have knowledge of calculating terminal velocity, projectile trajectory, etc. 
+
+Consists of many points that act as joints for it to move / change shape / have each joint be able to
+act on its own with the physics library so it can experiment with potential shapes to change into and ways
+to move joints. 
+
+There is NO set list of shapes to become; it has to be able to design its own shapes and change into them
+by itself. 
+
+Certain "power ups" exist in order for it to change material to become heavy or what not but it has to create
+its shapes on its own. Changing to a heavy material is not enough; it must know how to act in accordance
+with the new material and its knowledge of possible shapes in order to effectively traverse the obstacles. 
+
+The evolutionary artificial neural network (EANN) and genetic algorithm (GA) both need to have access to
+ALL the joints in the blob. The genetic algorithm will need to have access to the current environment for
+testing. 
+
+After completing every couple of obstacles there are "checkpoints" that save the new spawn point for use
+when the blob fails to reach an obstacle. 
