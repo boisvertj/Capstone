@@ -18,3 +18,8 @@ inline double Physics::ang_of_reach(double go_distance, double init_velocity)
 	double angle = 0.5 * asin((Physics::GRAVITY * go_distance) / pow(init_velocity, 2));
 	return angle;
 }
+
+inline double Physics::get_velocity(double time, double init_velocity)
+{
+	return ((Physics::GRAVITY * time) + init_velocity);
+}

@@ -1,4 +1,7 @@
 #pragma once
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <cmath>
 
 class Physics
@@ -16,4 +19,7 @@ public:
 	// Calculate the "angle of reach" of an object
 	// The "angle of reach" is the angle at which a projectile must be launched in order to go a certain distance
 	static double inline ang_of_reach(double go_distance, double init_velocity);
+
+	// Calculate the velocity of an object
+	static double inline get_velocity(double time, double init_velocity);
 };
