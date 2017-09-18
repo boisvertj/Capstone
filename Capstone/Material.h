@@ -1,18 +1,25 @@
 #pragma once
 #include <fstream>
+#include <iterator>
+#include <sstream>
 #include <string>
+#include <vector>
 
 struct MATERIAL {
-	enum COLOR { LIGHT_BLUE, SILVER, PINK };
-
 private:
-	COLOR color;
 	double density;
 	std::string type;
+	std::string color;
 
 public:
 	MATERIAL() {}
-	COLOR get_color()
+	MATERIAL(std::string type, std::string color, double density)
+	{
+		this->type = type;
+		this->density = density;
+		this->color = color;
+	}
+	std::string get_color()
 	{
 		return color;
 	}
@@ -25,7 +32,7 @@ public:
 		return type;
 	}
 
-	void set_color(COLOR color)
+	void set_color(std::string color)
 	{
 		this->color = color;
 	}
@@ -53,10 +60,8 @@ public:
 	void init_materials();
 	void set_current_material(MATERIAL material);
 
-	// List of materials
-	MATERIAL DEFAULT_GOO;
-	MATERIAL LEAD;
-	MATERIAL RUBBER;
+	// Vector of materials
+	static std::vector<MATERIAL> materials;
 
 private:
 	MATERIAL current_material;

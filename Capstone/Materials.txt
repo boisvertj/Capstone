@@ -1,1 +1,3 @@
-Lead 11.34 Silver
+LEAD Silver 11.34\n
+DEFAULT_GOO Light_Blue 3.50\n
+RUBBER PINK 0.11\n

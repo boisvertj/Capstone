@@ -1,27 +1,10 @@
 #include "stdafx.h"
 #include "Material.h"
 
-Material::Material() {
+std::vector<MATERIAL> Material::materials;
 
-
-	// TODO:
-	// Make "init_materials" method that reads from a text file a list of materials and their simple properties so you
-	// don't have to make an extremely long method that is just the same code over and over again. Just list the different
-	// material names as "MATERIAL" objects in the Material.h like the LEAD, DEFAULT_GOO, and RUBBER
-
-
-	// Measured in grams per cm^3
-	LEAD.set_density(11.34);
-	LEAD.set_type("LEAD");
-
-	DEFAULT_GOO.set_density(3.50);
-	DEFAULT_GOO.set_type("DEFAULT_GOO");
-
-	RUBBER.set_density(0.11);
-	RUBBER.set_type("RUBBER");
-
-	current_material = DEFAULT_GOO;
-
+Material::Material()
+{
 	init_materials();
 }
 
@@ -41,13 +24,19 @@ void Material::init_materials()
 {
 	try
 	{
+		// Read "Materials.txt" line by line
 		std::ifstream reader("Materials.txt");
 		std::string line;
 		while (std::getline(reader, line))
 		{
-			//TESTING
-			std::cout << "\nReading materials and their properties from file" << std::endl;
-			std::cout << line << std::endl;
+			// Segment line by spaces and store in 'tokens' vector
+			std::stringstream ss(line);
+			std::istream_iterator<std::string> begin(ss);
+			std::istream_iterator<std::string> end;
+			std::vector<std::string> tokens(begin, end);
+
+			// Add new material object to materials vector
+			Material::materials.push_back(MATERIAL(tokens.at(0), tokens.at(1), std::stod(tokens.at(2))));
 		}
 	}
 	catch (const std::exception & e)
@@ -61,4 +50,3 @@ void Material::set_current_material(MATERIAL current_material)
 {
 	this->current_material = current_material;
 }
-
