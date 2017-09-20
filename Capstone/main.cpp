@@ -4,7 +4,9 @@
  */
 #include "stdafx.h"
 
+// TESTING
 #include "Material.h"
+#include "Neuron.h"
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +17,8 @@ int main(int argc, char *argv[])
 	{
 		std::cout << (*iter).get_type() << " " << (*iter).get_density() << " " << (*iter).get_color() << std::endl;
 	}
+
+	std::cout << "Sigmoid (4.0): " << Neuron::sigmoid(4.0) << std::endl;
 
     return 0;
 }
